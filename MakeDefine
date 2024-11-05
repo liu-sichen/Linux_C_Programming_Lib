@@ -1,8 +1,9 @@
 CC=gcc
 AR=ar
 
-CFLAGS=-Wall -g -I../Lib/Include
-LDLIBS=-L../Lib -llcpl
+CFLAGS = -Wall -Werror
+INCDIR = -I../Lib/Include
+LDLIBS = -L../Lib/Obj -llcpl
 
-TEMPFILES=*.o temp.* *.out *.a
+TEMPFILES= *.o temp.* *.out *.a
 

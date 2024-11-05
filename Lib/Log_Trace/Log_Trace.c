@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
+#include <errno.h>
 #include "Log_Trace.h"
 
 int LogTrace(const char *file, int line, LogPara *para, const char *fmt, ...)
@@ -16,6 +17,15 @@ int LogTrace(const char *file, int line, LogPara *para, const char *fmt, ...)
 	va_end(args);
 
 	printf("%s \n", logStr);
+
+	return 0;
+}
+
+int errnotest()
+{
+	fprintf(stderr, "EACCES: %s\n", strerror(EACCES));
+	errno = ENOENT;
+	perror("errno");
 
 	return 0;
 }

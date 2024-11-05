@@ -1,13 +1,13 @@
 include ../MakeDefine
 
-LIBS = liblcpl.a
-OBJS = Log_Trace.o
+DIRS = Log_Trace Obj
 
-all: $(LIBS)
-
-$(LIBS): $(OBJS)
-	$(AR) rv $(LIBS) $?
+all:
+	for i in $(DIRS); do \
+		(cd $$i && echo "making $$i" && $(MAKE)) || exit 1; \
+	done
 
 clean:
-	rm -f $(TEMPFILES)
-
+	for i in $(DIRS); do \
+		(cd $$i && echo "cleaning $$i" && $(MAKE) clean) || exit 1; \
+	done

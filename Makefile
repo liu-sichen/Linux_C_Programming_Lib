@@ -1,7 +1,7 @@
-DIRS = lib 2D_Struct_Array File_Operate List_Directory_Contents \
-    Shell Sock_Unix Unbuffered_IO Standard_IO\
+DIRS = lib Data_Struct \
+       File_Operate Proc_Control Sock_Com \
 
-all:
+all: clean
 	for i in $(DIRS); do \
 		(cd $$i && echo "making $$i" && $(MAKE) ) || exit 1; \
 	done

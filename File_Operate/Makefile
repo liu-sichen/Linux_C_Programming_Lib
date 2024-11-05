@@ -3,11 +3,11 @@ include ../MakeDefine
 PROGS = File_Operate
 ADDFLAGS = -D_GNU_SOURCE
 
-all: $(PROGS)
+all : $(PROGS)
 
-%: %.c
-	$(CC) $(CFLAGS) $(ADDFLAGS) $@.c -o $@
+% : %.c
+	$(CC) $(CFLAGS) $(ADDFLAGS) $(INCDIR) $@.c -o $@ $(LDLIBS)
 
-clean:
+clean :
 	rm -f $(PROGS) $(TEMPFILES)
 
