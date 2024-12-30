@@ -12,7 +12,6 @@ typedef struct {
 
 void printfArray(DataPara **para, int rowNum, int colNum)
 {
- 
     for (int row = 0; row < rowNum; row++) {
         for (int col = 0; col < colNum; col++) {
             LOG_TRACE(NULL, "row %d col %d: para1 %d para2 %d", row, col,

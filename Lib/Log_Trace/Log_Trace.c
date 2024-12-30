@@ -9,7 +9,7 @@ int LogTrace(const char *file, int line, LogPara *para, const char *fmt, ...)
 
 	char logStr[LOG_LEN_MAX] = {0};
 
-	sprintf(logStr, "File: %s, Line: %d info: ", file, line);
+	sprintf(logStr, "File: %s, Line: %d Err: %s info: ", file, line, strerror(errno));
 	
 	va_list args;
 	va_start(args, fmt);
@@ -20,13 +20,3 @@ int LogTrace(const char *file, int line, LogPara *para, const char *fmt, ...)
 
 	return 0;
 }
-
-int errnotest()
-{
-	fprintf(stderr, "EACCES: %s\n", strerror(EACCES));
-	errno = ENOENT;
-	perror("errno");
-
-	return 0;
-}
-
